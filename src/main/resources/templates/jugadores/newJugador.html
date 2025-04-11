@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <title>Nuevo Jugador</title>
+</head>
+<body>
+<main>
+    <div class="container px-4 py-5">
+        <h1 class="pb-2 mb-3 border-bottom">Nuevo Jugador</h1>
+        <form method="post" th:action="@{/player/save}" class="mt-2">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input name="nombre" type="text" class="form-control" id="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input name="edad" type="number" class="form-control" id="edad">
+            </div>
+            <div class="mb-3">
+                <label for="posicion" class="form-label">Posicion</label>
+                <input name="posicion" type="text" class="form-control" id="posicion">
+            </div>
+            <div class="mb-3">
+                <label for="club" class="form-label">Club</label>
+                <input name="club" type="text" class="form-control" id="club">
+            </div>
+            <div class="mb-3">
+                <p>Selección</p>
+                <p>Perú</p>
+            </div>
+            <input value="1" name="seleccion" type="hidden" />
+            <a th:href="@{'/player/list'}" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </div>
+</main>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
