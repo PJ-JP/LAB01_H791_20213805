@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+        <title>Lista Jugadores</title>
+    </head>
+    <body>
+        <main>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 border-bottom">Lista de Jugadores</h1>
+                <div class="d-flex mt-3 mb-4">
+                    <a class="btn btn-primary" th:href="@{'/player/new'}">Nuevo Jugador</a>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Posicion</th>
+                            <th>Club</th>
+                            <th>Seleccion</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="jugador, info : ${listaJugadores}">
+                            <td th:text="${info.index + 1}"></td>
+                            <td th:text="${jugador.nombre}"></td>
+                            <td th:text="${jugador.edad}"></td>
+                            <td th:text="${jugador.posicion}"></td>
+                            <td th:text="${jugador.club}"></td>
+                            <td th:text="${jugador.seleccion}"></td>
+                            <td><a class="btn btn-danger"
+                                   th:href="@{'/player/delete?id=' + ${jugador.idjugador}}">Borrar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>
